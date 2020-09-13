@@ -10,8 +10,10 @@ These are the steps, you have to follow to run this project.
                   yarn global add @vue/cli
 # Once you have install vue cli
 
-$ cd <This Project>
+$ cd This Project
+
 $ npm install
+
 $ npm run dev
 
 I have use tailwindcss and autoprefixer in this project.
