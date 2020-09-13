@@ -71,12 +71,12 @@
 
 <script>
 import ProductCard from "./components/ProductCard.vue";
-import PlaceOrder from "./components/PlaceOrder.vue";
+//import ProductInfo from "./components/ProductInfo";
 
 export default {
   name: "App",
   components: {
-    ProductCard,
+    ProductCard
   },
   data() {
     return {

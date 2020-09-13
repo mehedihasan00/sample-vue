@@ -41,6 +41,7 @@
 </template>
 
 <script>
+//import ProductInfo from "./ProductInfo"
 export default {
   props: {
     property: Object
