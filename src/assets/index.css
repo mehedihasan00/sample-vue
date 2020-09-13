@@ -1,0 +1,103 @@
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+
+body {
+  @apply bg-gray-200;
+}
+.header {
+  @apply border-b-2 fixed w-full bg-gray-100;
+  max-height: 4rem;
+  z-index: 999;
+}
+.menu-card {
+  @apply bg-white p-2 w-full absolute border border-gray-300 rounded-b-lg shadow-2xl overflow-hidden;
+  
+  top: -25rem;
+  height: 20rem;
+  transition: 0.3s ease-out;
+  z-index: 990;
+}
+.menu-body {
+  @apply flex flex-wrap;
+}
+.menu-visible {
+  z-index: 998;
+  top: 4rem;
+}
+.menu-title {
+  @apply text-lg text-gray-600 text-center;
+}
+.backdrop {
+  @apply absolute;
+  visibility: hidden;
+  z-index: 990;
+  transition: 0.3s ease-out;
+}
+.bd-visible {
+  @apply bg-gray-500 bg-opacity-75;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+ 
+}
+.bg-gray {
+  background-color: gray;
+}
+.input-group {
+  @apply flex border border-gray-300 rounded-lg bg-white overflow-hidden m-2;
+  z-index: 999;
+}
+.input {
+  @apply bg-gray-300 px-4 pt-1 pb-2 flex-1;
+}
+.input:focus {
+  @apply outline-none bg-white;
+}
+
+.btn {
+  @apply border w-full h-10 p-2 rounded-md bg-blue-200 text-center text-white;
+}
+
+.btn-gray {
+  @apply btn bg-gray;
+}
+
+.h-100 {
+  height: 10rem;
+}
+.search-btn {
+  @apply bg-gray-300 px-4 pb-2 pt-1 text-white outline-none;
+  width: 4rem;
+  height: 100%;
+
+  /* background-color: #fce373; */
+}
+.search-btn:focus {
+  @apply outline-none;
+}
+.div-card {
+  @apply w-full border rounded-lg bg-white overflow-hidden;
+  max-height: 6rem;
+}
+.div-card .title {
+  @apply text-xl;
+}
+.div-card:hover {
+  @apply shadow-md text-blue-500;
+}
+.div-card .product-image {
+  max-height: 6rem;
+  max-width: 8rem;
+  height: 6rem;
+  width: auto;
+}
+.div-card button:focus {
+  outline: none;
+}
+.content-body {
+  @apply flex flex-col relative;
+  top: 4rem;
+}
