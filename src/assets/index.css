@@ -30,6 +30,27 @@ body {
 .menu-title {
   @apply text-lg text-gray-600 text-center;
 }
+.dropdown-card {
+  @apply bg-white p-2 absolute border border-gray-300 shadow-md overflow-hidden;
+  left: -25rem;
+  width: 20rem;
+  transition: 0.3s ease-out;
+  z-index: 990;
+  height: 89%;
+}
+.dropdown-visible {
+  z-index: 998;
+  top: 4rem;
+  left: 0rem;
+}
+.dr-menu-profile {
+  /*@apply*/
+  height: 8rem;
+  width: 100%; 
+}
+.dr-menu-title {
+  @apply text-lg text-gray-600 text-center;
+}
 .backdrop {
   @apply absolute;
   visibility: hidden;

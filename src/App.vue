@@ -1,7 +1,7 @@
 <template>
   <div class="header flex justify-between">
     <div class="w-1/6 text-center">
-      <button class="text-3xl px-3 py-1 text-blue-500">
+      <button @click="dropdownVisible" class="text-3xl px-3 py-1 text-blue-500 focus:outline-none">
         <i class="fal fa-bars"></i>
       </button>
     </div>
@@ -10,14 +10,14 @@
         type="search"
         class="input"
         placeholder="Search Anything..."
-        @focus="visible"
+        @focus="menuVisible"
       />
       <button class="search-btn">
         <img src="./assets/search.svg" alt />
       </button>
     </div>
     <div class="w-1/6 text-center">
-      <button class="text-3xl px-3 py-1">
+      <button class="text-3xl px-3 py-1 text-blue-500 focus:outline-none">
         <i class="fal fa-shopping-bag"></i>
       </button>
     </div>
@@ -45,9 +45,29 @@
       </div>
     </div>
   </div>
+
+  <div :class="{'dropdown-card': true, 'dropdown-visible': dropdownVis}">
+    <div
+      class="h-full flex flex-col sm:divide-x sm:divide-y-0 lg:divide-x-0 xl:divide-y divide-gray-300"
+    >
+      <div class="dr-menu-profile">
+        <div class="w-auto h-24 text-center">
+          <img class="w-20 h-20 rounded-full" src="./assets/donald-trump-jm-0932.jpg" alt="Trump PowerMan">
+          <span class="dr-menu-title">John Doe</span>
+        </div>
+      </div>
+      <ul>
+          <li v-for="route in routes" :key="route.id" class="border-b border-b-1 px-1 py-2 text-blue-500">
+            <span v-html="route.icon"></span>
+            {{ route.name }}
+          </li>
+        </ul>
+    </div>
+  </div>
+
   <button
-    @click="menuVis = false"
-    :class="{ backdrop: true, 'bd-visible': menuVis }"
+    @click="backdropVisiblity"
+    :class="{ backdrop: true, 'bd-visible': menuVis}"
   ></button>
 
   <div class="content-body">
@@ -91,13 +111,31 @@ export default {
         rating: 3,
         reviewCount: 5,
       },
+      routes: [
+        {id: 0, name: 'Home', icon: '<i class="fad fa-home"></i>'},
+        {id: 1, name: 'Order', icon: '<i class="far fa-shopping-cart"></i>'},
+        {id: 2, name: 'Contacts', icon: '<i class="fas fa-portrait"></i>'},
+        {id: 3, name: 'Settings', icon: '<i class="far fa-cog"></i>'},
+        {id: 4, name: 'Notifications', icon: '<i class="fal fa-bell"></i>'},
+        {id: 5, name: 'Change Password', icon: '<i class="far fa-lock-alt"></i>'}
+      ],
       menuVis: false,
+      dropdownVis: false
     };
   },
   methods: {
-    visible() {
+    menuVisible() {
       this.menuVis = true;
+      this.dropdownVis = false;
     },
+    dropdownVisible() {
+      this.dropdownVis = !this.dropdownVis;
+      this.menuVis = false;
+    },
+    backdropVisiblity() {
+      this.menuVis = false;
+      this.dropdownVis = false;
+    }
   },
 };
 </script>
