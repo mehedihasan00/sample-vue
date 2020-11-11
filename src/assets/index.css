@@ -26,6 +26,7 @@ body {
 .menu-visible {
   z-index: 998;
   top: 4rem;
+  position: fixed;
 }
 .menu-title {
   @apply text-lg text-gray-600 text-center;
@@ -33,6 +34,7 @@ body {
 .dropdown-card {
   @apply bg-white p-2 absolute border border-gray-300 shadow-md overflow-hidden;
   left: -25rem;
+  top: 4rem;
   width: 20rem;
   transition: 0.3s ease-out;
   z-index: 990;
@@ -42,6 +44,7 @@ body {
   z-index: 998;
   top: 4rem;
   left: 0rem;
+  position: fixed;
 }
 .dr-menu-profile {
   /*@apply*/
@@ -58,6 +61,13 @@ body {
   transition: 0.3s ease-out;
 }
 .bd-visible {
+  @apply bg-gray-500 bg-opacity-75;
+  visibility: visible;
+  width: 100vw;
+  height: 100vh;
+ 
+}
+.bd-visible-expansion {
   @apply bg-gray-500 bg-opacity-75;
   visibility: visible;
   width: 100vw;
@@ -99,15 +109,21 @@ body {
 .search-btn:focus {
   @apply outline-none;
 }
+.search-btn:hover {
+  @apply text-blue-500;
+}
 .div-card {
   @apply w-full border rounded-lg bg-white overflow-hidden;
   max-height: 6rem;
+}
+.card-extend {
+  height: 16rem;
 }
 .div-card .title {
   @apply text-xl;
 }
 .div-card:hover {
-  @apply shadow-md text-blue-500;
+  @apply shadow-md;
 }
 .div-card .product-image {
   max-height: 6rem;
@@ -121,4 +137,40 @@ body {
 .content-body {
   @apply flex flex-col relative;
   top: 4rem;
+}
+.down-arrow {
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translate(-50%);
+}
+.down-arrow button {
+  border: 1px solid gray;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+/*...............button hover....................*/
+button:hover {
+  @apply text-blue-500;
+}
+/*...............button hover....................*/
+
+/*.............Expansion Panel for div-card...................*/
+.card-expansion {
+  @apply bg-white p-2 w-full fixed border border-gray-300 rounded-b-lg shadow-2xl overflow-hidden;
+  top: 4rem;
+  right: -25rem;
+  width: 20rem;
+  z-index: 990;
+  transition: 0.3s ease-out;
+}
+.card-expansion-visible {
+  z-index: 998;
+  top: 6rem;
+  right: 6rem;
+  width: 80vw;
+  height: 80vh;
+}
+.card-expansion-visible .btn {
+  /*right: 0;*/
 }

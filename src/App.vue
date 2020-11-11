@@ -22,81 +22,80 @@
       </button>
     </div>
   </div>
-  <div :class="{ 'menu-card ': true, 'menu-visible': menuVis }">
-    <div
-      class="w-full flex flex-wrap sm:divide-y sm:divide-x-0 lg:divide-y-0 xl:divide-x divide-gray-300"
-    >
-      <div class="lg:w-1/4 w-full h-full">
-        <div class="menu-title">Menu</div>
-      </div>
-      <div class="lg:w-3/4 w-full h-full p-2">
-        <div class="menu-title">Search Result</div>
-        <ul>
-          <li class="border-b border-b-1 px-1 py-2">
-            <a href="#" class="text-blue-500">All Result</a> 20 results found
-          </li>
-          <li class="border-b border-b-1 px-1 py-2">
-            <a href="#" class="text-blue-500">Category 1</a> 20 results found
-          </li>
-          <li class="border-b border-b-1 p-1">
-            <a href="#" class="text-blue-500">Category 2</a> 20 results found
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
+  <!-- Search_bar Details -->
+  
+  <!-- SearchBar Details Ends -->
 
-  <div :class="{'dropdown-card': true, 'dropdown-visible': dropdownVis}">
-    <div
-      class="h-full flex flex-col sm:divide-x sm:divide-y-0 lg:divide-x-0 xl:divide-y divide-gray-300"
-    >
-      <div class="dr-menu-profile">
-        <div class="w-auto h-24 text-center">
-          <img class="w-20 h-20 rounded-full" src="./assets/donald-trump-jm-0932.jpg" alt="Trump PowerMan">
-          <span class="dr-menu-title">John Doe</span>
-        </div>
-      </div>
-      <ul>
-          <li v-for="route in routes" :key="route.id" class="border-b border-b-1 px-1 py-2 text-blue-500">
-            <span v-html="route.icon"></span>
-            {{ route.name }}
-          </li>
-        </ul>
-    </div>
-  </div>
+  <!-- dropdown_view -->
+  <Dropdown :routes="routes" :dropdownVis="dropdownVis"/>
+  <!-- dropdown_view_exit -->
+  <SearchBarDetails :menuVis="menuVis"/>
+  <!-- cardexpension -->
+  <CardExpension :cardExpVis="cardExpVis" 
+    :property="property"
+    :cardExpVisible="cardExpVisible"
+  />
+  <!-- card_expansion ends -->
 
   <button
     @click="backdropVisiblity"
-    :class="{ backdrop: true, 'bd-visible': menuVis}"
+    :class="{ backdrop: true, 'bd-visible': menuVis, 'bd-visible-expansion': dropdownVis}"
   ></button>
 
   <div class="content-body">
     <div class="lg:w-full sm:w-auto p-2">
-      <ProductCard :property="property" />
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+       />
     </div>
     <div class="lg:w-full sm:w-auto p-2">
-      <ProductCard :property="property" />
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+       />
     </div>
     <div class="lg:full sm:w-auto p-2">
-      <ProductCard :property="property" />
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+       />
     </div>
     <div class="lg:full sm:w-auto p-2">
-      <ProductCard :property="property" />
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+      />
     </div>
     <div class="lg:w-full sm:w-auto p-2">
-      <ProductCard :property="property" />
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+      />
+    </div>
+    <div class="lg:w-full sm:w-auto p-2">
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+      />
+    </div>
+    <div class="lg:w-full sm:w-auto p-2">
+      <ProductCard :property="property"
+        :cardExpVisible="cardExpVisible"
+      />
     </div>
   </div>
 </template>
 
 <script>
-import ProductCard from "./components/ProductCard.vue";
+import ProductCard from "./components/ProductCard.vue"
+import SearchBarDetails from "./components/SearchBarDetails.vue"
+import CardExpension from "./components/CardExpension.vue"
+import Dropdown from "./components/Dropdown.vue"
+
 //import ProductInfo from "./components/ProductInfo";
 
 export default {
   name: "App",
   components: {
-    ProductCard
+    ProductCard,
+    SearchBarDetails,
+    CardExpension,
+    Dropdown
   },
   data() {
     return {
@@ -120,7 +119,8 @@ export default {
         {id: 5, name: 'Change Password', icon: '<i class="far fa-lock-alt"></i>'}
       ],
       menuVis: false,
-      dropdownVis: false
+      dropdownVis: false,
+      cardExpVis: false
     };
   },
   methods: {
@@ -135,6 +135,9 @@ export default {
     backdropVisiblity() {
       this.menuVis = false;
       this.dropdownVis = false;
+    },
+    cardExpVisible() {
+      this.cardExpVis = !this.cardExpVis
     }
   },
 };

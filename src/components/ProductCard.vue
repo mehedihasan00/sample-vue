@@ -4,12 +4,16 @@
       <div class="lg:w-1/12 w-3/12 overflow-hidden">
         <img :src="property.imageUrl" :alt="property.imageAlt" class="product-image">
       </div>
-      <div class="lg:w-8/12 w-6/12 p-1">
+      <div class="lg:w-8/12 w-6/12 p-1"  style="position: relative">
         <div class="w-full">
           <div class="text-gray-600 text-xs uppercase font-semibold tracking-wide">Product Name</div>
           <h4 class="font-semibold text-lg leading-tight truncate mt-1">TK 100</h4>
         </div>
+        <div class="down-arrow">
+          <button @click="cardExpVisible"><i class="fal fa-angle-double-down text-xl"></i></button>
+        </div>
       </div>
+
       <div class="lg:w-2/12 w-3/12 flex flex-col text-center p-1">
           <div class="w-full">
             <button class="border rounded h-12 w-full p-1">
@@ -44,7 +48,8 @@
 //import ProductInfo from "./ProductInfo"
 export default {
   props: {
-    property: Object
+    property: Object,
+    cardExpVisible: Function
   }
 }
 </script>
